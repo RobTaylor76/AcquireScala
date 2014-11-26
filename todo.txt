@@ -1,0 +1,49 @@
+Corporations have shareholders
+
+	Corporations need to do defunct if they are taken over..
+		share holders get paid when a corporations goes defunct
+		need to track/players as shareholders
+		need to enure they have no associated tiles...
+
+Need to be able to merge multiple corporations
+* need to order mergers ... comparable?
+
+Need to map tiles to actual corporations, not just the enums...
+
+
+Need to have strategies...
+	each player will have a  strategy
+		it decides on how to play the game
+		
+	Can register new strategies..
+		these will be untrusted
+		need to provide unmutable or copies of the state...
+
+	Players start with $6000
+		
+	Player needs to know what List of Tiles they have
+		
+			
+		Representation of board
+			need to provide unmutable or copies of the state...-> Map<Tile,NamedCorporation>
+						
+		Ability to place a tile, 
+			if a merger will be created and their is a tie, who will win?	
+			Will a new corporation be formed? 
+				are there any left?
+				which one to use?
+
+			can check outcome of placing a tile?
+				CORPORATION_FORMATION			-> list of available corporations
+				CORPORATION_MERGER				-> ????Winner / Loser
+				CORPORATION_MERGER_UNRESOLVED	-> ??? List of Corporations to choose between... winners / losers
+				CORPORATION_GOWTH				-> list with one corporation Who grows
+				UNCORPORTED						-> empty list
+				ILLEGAL							-> empty list No Available corporations
+
+		List of Corporations and their current state -> Stock Market List<StockQuote>
+			current stock price and no of available shares -> Stock Quote
+
+		
+		
+			

@@ -4,3 +4,7 @@
 /project/project/
 /project/target/
 /target/
+/bin/
+/.idea/**
+/.project
+/.classpath
