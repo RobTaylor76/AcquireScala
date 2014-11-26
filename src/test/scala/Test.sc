@@ -1,4 +1,4 @@
-import aquire.{RealCorporation, NoCorporation, Corporation, Tile}
+import acquire.{RealCorporation, NoCorporation, Corporation, Tile}
 
 object Test {
  val a = Tile(1,'A')

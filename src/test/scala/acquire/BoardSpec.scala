@@ -1,4 +1,4 @@
-package aquire
+package acquire
 
 
 import org.scalatest._
@@ -24,7 +24,7 @@ class BoardSpec  extends FlatSpec with Matchers {
 
       board isTileOccupied tile  should be (false)
 
-      board placeTile(tile , RealCorporation )
+      board placeTile(tile , Corporation(CorporationName.WORLDWIDE))
 
       board isTileOccupied tile  should be (true)
 

@@ -1,4 +1,4 @@
-package aquire
+package acquire
 
 import org.scalatest._
 

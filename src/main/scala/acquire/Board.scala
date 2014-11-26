@@ -1,4 +1,4 @@
-package aquire
+package acquire
 
 /**
  * Created by rob on 25/11/14.
@@ -15,17 +15,17 @@ abstract class Board {
   def resetState = {
     gameState = Map()
     for (tile <- tiles ) {
-      gameState += (tile -> NoCorporation)
+      gameState += (tile -> UNINCORPORATED)
     }
   }
 
-  def isTileOccupied(tile: Tile) = gameState(tile) != NoCorporation
+  def isTileOccupied(tile: Tile) = gameState(tile) != UNINCORPORATED
 
   def placeTile[T <: Corporation](tile: Tile, corp : T) = {
     gameState += (tile -> corp)
   }
 
   def availableTiles: List[Tile] = {
-    gameState collect  { case (tile, corp) if corp == NoCorporation => tile} toList
+    gameState collect  { case (tile, corp) if corp == UNINCORPORATED => tile} toList
   }
 }
