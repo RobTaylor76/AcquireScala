@@ -7,6 +7,6 @@ trait Corporation {
 
 }
 
-object None extends Corporation
+object NoCorporation extends Corporation
 
 object RealCorporation extends Corporation
