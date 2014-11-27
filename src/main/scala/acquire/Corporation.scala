@@ -37,7 +37,17 @@ object CorporationName extends Enumeration {
   TOWER = Value
 }
 
+case class ShareHolderBonus(majority : Int, minority: Int)
+
 object Tier extends Enumeration {
+  def shareHolderBonus(tier: Tier, noOfTiles: Int) : ShareHolderBonus = {
+
+    val majority = sharePrice(tier, noOfTiles) * 10;
+    val minority = majority / 2;
+
+    ShareHolderBonus(majority, minority)
+  }
+
   def sharePrice(tier: Tier, noOfTiles:Int) : Int =  {
     val uplift = tier match {
       case Tier.BRONZE => 0
