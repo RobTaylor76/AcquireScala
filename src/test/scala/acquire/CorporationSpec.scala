@@ -29,12 +29,12 @@ class CorporationSpec   extends FlatSpec with Matchers {
 class TierSpeac extends FlatSpec with Matchers {
 
   def sharePriceTest( tier : Tier, uplift : Int): Unit = {
-    (2 to 6 ) map { noOfTiles =>  Tier.sharePrice(tier,noOfTiles) should equal ((noOfTiles * 100) + uplift)  }
-    (7 to 10 ) map { noOfTiles =>  Tier.sharePrice(tier,noOfTiles) should equal (600 + uplift)  }
+    (2 to 5 ) map { noOfTiles =>  Tier.sharePrice(tier,noOfTiles) should equal ((noOfTiles * 100) + uplift)  }
+    (6 to 10 ) map { noOfTiles =>  Tier.sharePrice(tier,noOfTiles) should equal (600 + uplift)  }
     (11 to 20 ) map { noOfTiles =>  Tier.sharePrice(tier,noOfTiles) should equal (700 + uplift)  }
     (21 to 30 ) map { noOfTiles =>  Tier.sharePrice(tier,noOfTiles) should equal (800 + uplift)  }
     (31 to 40 ) map { noOfTiles =>  Tier.sharePrice(tier,noOfTiles) should equal (900 + uplift)  }
-    (41 to 99 ) map { noOfTiles =>  Tier.sharePrice(tier,noOfTiles) should equal (1000 + uplift)  }
+    (41 to 108 ) map { noOfTiles =>  Tier.sharePrice(tier,noOfTiles) should equal (1000 + uplift)  }
   }
 
   "tier share prices" should "be correct" in {

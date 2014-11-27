@@ -57,7 +57,7 @@ object Tier extends Enumeration {
       case _ => 0
     }  + uplift
 */
-    val price = if (noOfTiles < 7) {
+    val price = if (noOfTiles < 6) {
                   noOfTiles * 100
                 } else if (noOfTiles < 11) {
                   600

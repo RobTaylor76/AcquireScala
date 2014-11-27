@@ -9,39 +9,43 @@ import Matchers._
  */
 class BoardSpec  extends FlatSpec with Matchers {
 
-  class TestBoard extends Board {
-
-  }
-
+  val tile = Tile(1,'A')
 
     it should " store tile in correct slot" in {
 
-      val board = new TestBoard
+      val board = new Board
 
-      board.resetState
+      val boardState : BoardState = board
 
-      val tile = Tile(1,'A')
-
-      board isTileOccupied tile  should be (false)
+      boardState isTileOccupied tile  should be (false)
 
       board placeTile(tile , Corporation(CorporationName.WORLDWIDE))
 
-      board isTileOccupied tile  should be (true)
+      boardState isTileOccupied tile  should be (true)
 
      // board availableTiles  // filter { _ == tile } count should be 0
 
     }
 
     it should  "have all the Available Tiles" in {
-      val board = new TestBoard
+      val board = new Board
+      val boardState = board
 
-      board.resetState
+      val availableTiles : List[Tile]  = boardState.availableTiles
 
-      val availableTiles : List[Tile]  = board.availableTiles
+      availableTiles should contain(tile)
 
       availableTiles should have size 108
+
+      board placeTile(tile , Corporation(CorporationName.WORLDWIDE))
+
+      boardState.availableTiles should not contain(tile)
     }
 
+  it should "list all placed tiles" in {
+
+
+  }
 
 
 }
