@@ -8,12 +8,11 @@ import acquire.Tier.Tier
  */
 trait Corporation {
   protected var _status = Status.DORMANT
-  protected var _noOfShares = 0
 
-  def noOfShares : Int = _noOfShares
+  def noOfShares : Int
   def tier : Tier = Tier.NONE
   def status = _status
-  def name : CorporationName = CorporationName.UNINCORPORATED
+  def name : CorporationName
 
 
 }
@@ -84,7 +83,7 @@ object Tier extends Enumeration {
 
 
 object Corporation {
-  case class CorporationDefinition(tier: Tier,  noOfShares: Int)
+  case class CorporationDefinition(tier: Tier, noOfShares: Int)
 
   val corporationTiers = Map((CorporationName.WORLDWIDE -> CorporationDefinition(Tier.BRONZE, 25)),
                               (CorporationName.SACKSON -> CorporationDefinition(Tier.BRONZE, 25)),
@@ -101,10 +100,13 @@ object Corporation {
 }
 
 
-object UNINCORPORATED extends Corporation
+object UNINCORPORATED extends Corporation {
+  override def noOfShares: Int = 0
+
+  override def name: CorporationName = CorporationName.UNINCORPORATED
+}
 
 class RealCorporation(override val name : CorporationName ,
                       override val tier : Tier,
                       override val noOfShares: Int) extends Corporation {
-  _noOfShares = noOfShares
 }
